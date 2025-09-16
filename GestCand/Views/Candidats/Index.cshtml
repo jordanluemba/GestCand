@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GestCand.Models.Candidat>
+
+@{
+    ViewData["Title"] = "Candidats";
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Liste des Candidats</h4>
+            <a asp-action="Create" class="btn btn-success">Ajouter un candidat</a>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered align-middle mb-0">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom</th>
+                            <th>Postnom</th>
+                            <th>Prénom</th>
+                            <th>Sexe</th>
+                            <th>Lieu de naissance</th>
+                            <th>Date de naissance</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Nom</td>
+                                <td>@item.Postnom</td>
+                                <td>@item.Prenom</td>
+                                <td>@item.Sexe</td>
+                                <td>@item.LieuNaissance</td>
+                                <td>@(item.DateNaissance.HasValue? item.DateNaissance.Value.ToShortDateString() : "")</td>
+                                <td class="text-center">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary me-1">Modifier</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info me-1">Détails</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Supprimer</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

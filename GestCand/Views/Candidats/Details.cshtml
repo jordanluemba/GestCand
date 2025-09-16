@@ -1,0 +1,58 @@
+﻿@model GestCand.Models.Candidat
+
+@{
+    ViewData["Title"] = "Détails du Candidat";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Détails du Candidat</h4>
+                </div>
+                <div class="card-body">
+
+                    <dl class="row mb-3">
+                        <dt class="col-sm-4 text-end">Nom :</dt>
+                        <dd class="col-sm-8">@Model.Nom</dd>
+
+                        <dt class="col-sm-4 text-end">Postnom :</dt>
+                        <dd class="col-sm-8">@Model.Postnom</dd>
+
+                        <dt class="col-sm-4 text-end">Prénom :</dt>
+                        <dd class="col-sm-8">@Model.Prenom</dd>
+
+                        <dt class="col-sm-4 text-end">Sexe :</dt>
+                        <dd class="col-sm-8">@Model.Sexe</dd>
+
+                        <dt class="col-sm-4 text-end">Lieu de naissance :</dt>
+                        <dd class="col-sm-8">@Model.LieuNaissance</dd>
+
+                        <dt class="col-sm-4 text-end">Date de naissance :</dt>
+                        <dd class="col-sm-8">@Model.DateNaissance?.ToShortDateString()</dd>
+
+                        <dt class="col-sm-4 text-end">Nationalité :</dt>
+                        <dd class="col-sm-8">@Model.Nationalite</dd>
+
+                        <dt class="col-sm-4 text-end">Adresse :</dt>
+                        <dd class="col-sm-8">@Model.Adresse</dd>
+
+                        <dt class="col-sm-4 text-end">Téléphone :</dt>
+                        <dd class="col-sm-8">@Model.Telephone</dd>
+                    </dl>
+
+                    <div class="text-center mt-4">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary me-2">Modifier</a>
+                        <a asp-action="Index" class="btn btn-secondary">Retour à la liste</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

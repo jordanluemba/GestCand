@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Accueil - Gestion des Candidats";
+}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100" style="position:relative; z-index:1;">
+    <div class="bg-white bg-opacity-75 rounded-4 shadow-lg p-5 w-100" style="max-width:700px;">
+        <!-- Titre principal -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-dark text-shadow">Gestion des Candidats</h1>
+            <p class="lead text-secondary fst-italic">Suivi complet des candidats inscrits à l'université.</p>
+        </div>
+
+        <!-- Boutons rapides -->
+        <div class="text-center mb-4">
+            <a href="@Url.Action("Index", "Candidats")" class="btn btn-primary btn-lg mx-2 shadow rounded-pill fw-semibold">Voir tous les candidats</a>
+            <a href="@Url.Action("Create", "Candidats")" class="btn btn-success btn-lg mx-2 shadow rounded-pill fw-semibold">Ajouter un candidat</a>
+        </div>
+
+        <!-- Section d'information / conseils -->
+        <div class="mt-4 text-center text-secondary">
+            <p>Cette plateforme permet de gérer efficacement les inscriptions et de suivre les candidats.</p>
+        </div>
+    </div>
+</div>

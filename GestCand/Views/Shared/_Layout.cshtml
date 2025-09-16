@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GestCand</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GestCand.styles.css" asp-append-version="true" />
+
+    <style>
+        html, body {
+            height: 100%; /* Important pour que flex fonctionne sur toute la page */
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+    <!-- Background image for all body -->
+    <div class="position-fixed top-0 start-0 w-100 h-100" style="z-index:0;">
+        <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+             class="w-100 h-100 object-fit-cover"
+             alt="Background"
+             style="opacity:0.3; object-fit:cover;">
+    </div>
+
+    <!-- Header / Navbar -->
+    <header style="z-index:2;">
+        <nav class="navbar navbar-expand-lg navbar-primary bg-primary bg-gradient text-white shadow fixed-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-white" asp-area="" asp-controller="Home" asp-action="Index">GestCand</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active text-warning" asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Candidats" asp-action="Index">Candidats</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="flex-fill position-relative" style="padding-top:80px; z-index:1;">
+        <div class="container d-flex justify-content-center">
+            @RenderBody()
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary bg-gradient text-white border-top shadow py-3" style="z-index:1;">
+        <div class="container text-center">
+            &copy; 2025 - GestCand
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
